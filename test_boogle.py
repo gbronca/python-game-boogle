@@ -89,8 +89,11 @@ class TestBoogle(unittest.TestCase):
         twoLetterWord = 'AB'
         threeLetterWord = 'ABC'
         notThereWord = 'EEE'
-        dictionary = [twoLetterWord, threeLetterWord, notThereWord]
         
+        fullwords = [twoLetterWord, threeLetterWord, notThereWord]
+        stems = ['A', 'AB', 'E', 'EE']
+        dictionary = fullwords, stems
+
         foundWords = boogle.search(grid, dictionary)
         
         self.assertTrue(twoLetterWord in foundWords)
@@ -103,4 +106,4 @@ class TestBoogle(unittest.TestCase):
         that has a length greater than 0
         """
         dictionary = boogle.get_dictionary('words.txt')
-        self.assertGreater(len(dictionary))
+        self.assertGreater(len(dictionary), 0)
